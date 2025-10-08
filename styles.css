@@ -84,13 +84,13 @@ a:hover, a:focus { color: var(--accent); }
   text-align: center;
 }
 
-/* LOGO STRIP — single NST logo centered */
+/* LOGO STRIP — NST × S-VYASA */
 .hero__logos {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;                     /* no spacing: single logo */
-  flex-wrap: nowrap;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -102,18 +102,33 @@ a:hover, a:focus { color: var(--accent); }
   box-shadow: 0 4px 0 rgba(12, 18, 44, 0.45);
   align-items: center;
   justify-content: center;
-  margin-inline: auto;        /* ensure centering */
+  margin: 0;
+  flex: 0 0 auto;
 }
 
 .presenter__logo {
-  width: clamp(220px, 42vw, 420px); /* make it dominant */
   height: auto;
   animation: logo-float 6s ease-in-out infinite;
   filter: none;
+  max-width: 100%;
+}
+.presenter__logo--nst { width: clamp(180px, 30vw, 280px); }
+.presenter__logo--svyasa { width: clamp(160px, 28vw, 240px); }
+
+.hero__x {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  line-height: 1;
+  color: var(--accent);
+  text-shadow: 0 3px 0 #03030b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: clamp(0.35rem, 0.9vw, 0.75rem);
+  min-width: 1.5rem;
 }
 
-/* Hide the cross and the Kickstart square logo entirely */
-.hero__x { display: none !important; }
+/* Hide the Kickstart square logo entirely */
 .hero__logo--inline { display: none !important; }
 
 .hero__copy {
@@ -347,7 +362,8 @@ h1 {
   .form-grid { grid-template-columns: 1fr; }
   .hero, .section__content { padding-left: 1rem; padding-right: 1rem; }
   .button { width: 100%; text-align: center; padding: 0.8rem 1rem; }
-  .presenter__logo { width: clamp(200px, 52vw, 360px); } /* ensure strong presence on tablet */
+  .presenter__logo--nst { width: clamp(180px, 52vw, 280px); }
+  .presenter__logo--svyasa { width: clamp(160px, 48vw, 240px); }
 }
 
 .footer {
@@ -425,12 +441,12 @@ h1 {
   .section { padding: 3.25rem 1.25rem; }
   .section__content > h2 { font-size: clamp(1.6rem, 5vw, 2.2rem); text-shadow: 2px 2px 0 #03030b; }
 
-  .hero__logos { flex-direction: row; justify-content: center; align-items: center; width: 100%; gap: 0; }
+  .hero__logos { flex-direction: row; justify-content: center; align-items: center; width: 100%; flex-wrap: wrap; gap: 0.9rem; }
   .presenter__brand, .hero__logo--inline { flex: 0 1 auto; }
   .presenter__brand { padding: 0.6rem 0.75rem; }
-  .presenter__logo { width: clamp(200px, 64vw, 360px); max-width: 100%; }
-
-  .hero__x { display: none !important; }
+  .presenter__logo--nst { width: clamp(170px, 58vw, 260px); }
+  .presenter__logo--svyasa { width: clamp(150px, 56vw, 220px); }
+  .hero__x { font-size: clamp(1.6rem, 5.5vw, 2.2rem); padding-inline: 0.3rem; }
   .hero__logo--inline { display: none !important; }
 
   .hero__copy { max-width: 32rem; gap: 1.25rem; }
@@ -465,8 +481,11 @@ h1 {
   .countdown { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); justify-items: center; gap: 0.85rem; }
   .button { max-width: none; }
 
-  .hero__logos { gap: 0; }
-  .presenter__logo { max-width: 100%; }
+  .hero__logos { gap: 0.7rem; }
+  .presenter__brand { padding: 0.55rem 0.65rem; }
+  .presenter__logo--nst { width: clamp(150px, 66vw, 220px); }
+  .presenter__logo--svyasa { width: clamp(140px, 64vw, 200px); }
+  .hero__x { font-size: clamp(1.4rem, 8vw, 2rem); padding-inline: 0.2rem; }
 
   .hero__stats li { box-shadow: 0 6px 0 #03030b; }
   .card, .track, .timeline__item, .prizes li { padding: 1.1rem; }
